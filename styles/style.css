@@ -13,4 +13,223 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--font-family-main), sans-serif;
+  font-variation-settings: 'wght' var(--wght-normal);
+  color: var(--color-dark);
+  background-image: var(--background-img);
+  background-size: cover;
+  background-attachment: fixed;
+  font-size: var(--font-size-base);
+
+}
+
+.dynmc-width {
+  inline-size: var(--dynamic-width);
+}
+
+.header {
+  font-family: var(--font-family-accent), sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: var(--spacing-xl) auto 100px;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  text-transform: uppercase;
+  background-color: var(--color-light);
+  padding-block: clamp(7.5rem, 0.751vw + 7.324rem, 8rem);
+  padding-inline: clamp(0.875rem, 9.953vw - 1.458rem, 7.5rem);
+  border: 2px solid var(--color-dark);
+}
+
+.header__logo {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__title {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+/* main section */
+
+.content {
+  margin: 0 auto;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-l);
+  align-items: center;
+}
+
+.card {
+  border: 2px solid var(--color-dark);
+  background-color: var(--color-light);
+}
+
+.card__title {
+  font-size: var(--font-size-base);
+  line-height: 100%;
+  font-variation-settings: 'wght' var(--wght-bold);
+  padding: 6px var(--spacing-sm);
+}
+
+.card__img-wrapper {
+  inline-size: 100%;
+  position: relative;
+  border-top: 2px solid var(--color-dark);
+  border-bottom: 2px solid var(--color-dark);
+}
+
+.card__img-label {
+  position: absolute;
+  font-family: var(--font-family-accent);
+  font-size: var(--font-size-sm);
+  color: var(--color-dark);
+  inset-block-start: var(--spacing-ml);
+  inset-inline-end: clamp(0.813rem, 1.127vw + 0.548rem, 1.563rem);
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  text-transform: lowercase;
+  text-shadow:
+    1px 1px 0 var(--stroke-color),
+    -1px -1px 0 var(--stroke-color);
+}
+
+@supports ((text-stroke: 1px var(--stroke-color)) or (-webkit-text-stroke: 1px var(--stroke-color))) {
+
+  .card__img-label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--stroke-color);
+    text-stroke: 1px var(--stroke-color);
+  }
+}
+
+.card__img {
+  display: block;
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1/1;
+}
+
+
+
+.filter-brightness {
+  filter: brightness(1.2);
+}
+
+.filter-grayscale {
+  filter: grayscale(80%);
+}
+
+.filter-contrast {
+  filter: contrast(1.5);
+}
+
+.filter-sepia {
+  filter: sepia(60%);
+}
+
+.filter-saturate {
+  filter: saturate(2);
+}
+
+.filter-invert {
+  filter: invert(100%);
+}
+
+.filter-multi {
+  filter: blur(8px) brightness(0.8);
+}
+
+.filter-hue {
+  filter: hue-rotate(90deg);
+}
+
+
+
+
+.card__content {
+  padding: var(--spacing-ml);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-ml);
+}
+
+.card__text p {
+  letter-spacing: 0.4px;
+  line-height: 1.17;
+}
+
+.card__text p:not(:last-child) {
+  margin-block-end: 27px;
+}
+
+.card__like-btn-block {
+  align-self: flex-end;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.like-icon {
+}
+
+.card__like-button {
+  background-color: var(--color-light);
+  border: 2px solid var(--color-dark);
+  padding: 7px 35px;
+}
+
+.button__text {
+  font-family: var(--font-family-accent);
+  line-height: 90%;
+  font-size: var(--font-size-sm);
+}
+
+.save-button {
+  margin: var(--spacing-l) auto;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  /* inline-size: clamp(19.125rem, 2.723vw + 18.487rem, 20.938rem); */
+  align-items: center;
+  background-color: var(--color-light);
+  border: 2px solid var(--color-dark);
+  padding-block: 16px;
+  padding-inline: 20px;
+
+}
+
+@media (width <= 375px) {
+
+  .header,
+  .content {
+    inline-size: 100%;
+  }
+
+  .card__title {
+    line-height: 1.1;
+  }
+
+  .card__text p {
+    letter-spacing: 0.5px;
+  }
+
+  .save-button {
+    flex-direction: column;
+  }
+
+  .save-button svg {
+    inline-size: 28px;
+    block-size: 28px;
+  }
 }
